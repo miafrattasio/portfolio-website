@@ -1,0 +1,284 @@
+/* --- 1. Global Reset & Base Styling --- */
+:root {
+    --primary-color: #3f51b5; /* Deep Indigo - Professional Accent */
+    --secondary-color: #303f9f; /* Pink Accent - For buttons/highlights */
+    --text-color: #212121;
+    --light-gray: #f8f9fa;
+    --card-background: #ffffff;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+/* --- 2. Hero Section (Header Layout) --- */
+.hero-section {
+    background-color: var(--card-background);
+    border-bottom: 8px solid var(--primary-color) !important; /* Updated to use primary blue and added !important to override inline page-specific colors */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     
+    /* Layout for two-column header (Left: Info, Right: Nav) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px; /* Adjusted padding */
+}
+
+/* --- Left Column: Photo and Text Wrapper --- */
+.hero-info {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.hero-text {
+    margin-left: 30px; 
+}
+
+/* --- NEW: Header Contact Links Styling --- */
+.header-contact-links {
+    margin-top: 10px; /* Space below the title */
+    font-size: 0.95em;
+}
+
+.header-contact-links .contact-link {
+    color: var(--primary-color); /* Use your accent color */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.header-contact-links .contact-link:hover {
+    color: var(--primary-color); /* Highlight on hover */
+    text-decoration: underline;
+}
+
+/* --- Name & Title Hierarchy --- */
+.name-title {
+    /* Name is largest element */
+    font-size: 2.8em; 
+    margin-bottom: 2px;
+    color: var(--text-color);
+    font-weight: 700;
+    text-align: left;
+}
+
+.current-title {
+    /* Title is smaller, secondary element */
+     font-size: 1.2em; 
+    font-weight: 400;
+    color: #616161;
+    margin-top: 0;
+    text-align: left;
+}
+
+/* --- 3. Profile Picture Styling --- */
+.profile-photo-container {
+    width: 180px;
+    height: 180px;
+    margin: 0; /* Ensures it stays left within the hero-info flex */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 6px solid var(--primary-color); /* Applied color from :root */
+    box-shadow: 0 0 0 8px rgba(63, 81, 181, 0.1); 
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.9); /* Reduced zoom to 120% for safety */
+}
+
+/* --- 4. Navigation Buttons (Right Column) --- */
+.main-nav {
+    display: flex; 
+    flex-direction: column; /* Stacks the buttons vertically */
+    gap: 10px; 
+}
+
+.nav-button {
+    display: block; /* Ensures vertical stacking works */
+    padding: 10px 20px; /* Smaller button size */
+    margin: 0; 
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; 
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-size: 0.9em;
+}
+
+.nav-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 5. Main Content Layout (3-Column Grid) --- */
+.main-content {
+    display: grid;
+    /* Create three equally sized columns on large screens */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.main-content.projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.info-card {
+    flex: none; /* Crucial for grid layout */
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px); 
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- 6. Lists and Details (Skills, Jobs, Education) --- */
+.skills-list, .job-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-list li, .job-details-list li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1.05em;
+}
+
+/* Custom bullet point (Dot) */
+.skills-list li::before, .job-details-list li::before {
+    content: '•'; 
+    color: var(--secondary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+}
+
+.job-duration, .job-location {
+    font-style: italic;
+    color: #757575;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* --- 7. Project Specific Styles --- */
+/* (This applies to individual projects/jobs/other items listed inside the cards) */
+.project-item {
+    margin-bottom: 30px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+.project-item h3 {
+    margin-bottom: 5px;
+}
+
+/* --- 8. Footer/Contact Section --- */
+.contact-footer {
+    background-color: var(--primary-color); /* Set footer background to the primary blue */
+    color: white;
+    padding: 25px 0;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+.contact-footer a {
+    color: white; /* Set footer link color to white */
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.contact-footer a:hover {
+    color: white; /* Keep hover color white, ensuring it's not pink */
+    text-decoration: underline;
+}
+
+/* --- 9. Responsive Adjustments (Mobile/Tablet) --- */
+
+@media (max-width: 1000px) {
+     /* Switch Main Content to 2 columns on medium screens */
+    .main-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Switch Main Content to 1 column on small/mobile screens */
+    .main-content {
+         grid-template-columns: 1fr; 
+     }
+     
+     /* Stack the Header elements vertically on small screens */
+     .hero-section {
+         flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+       
+    .hero-info {
+        flex-direction: column; /* Stacks photo on top of text */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        margin-left: 0; 
+        margin-top: 15px;
+    }
+
+    .hero-text .name-title, 
+    .hero-text .current-title {
+        text-align: center;
+    }
+
+    .main-nav {
+        flex-direction: row; /* Puts buttons side-by-side on mobile */
+        flex-wrap: wrap; /* Allows buttons to wrap if too wide */
+        justify-content: center;
+        gap: 8px;
+    }
+}

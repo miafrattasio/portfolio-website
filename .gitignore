@@ -1,0 +1,36 @@
+# ----------------------------------------------------------------------
+# 1. Project-Specific Exclusions
+# ----------------------------------------------------------------------
+
+# Ignore any specific build or temp directories if you plan to add a build step later (e.g., using Sass/Less)
+/dist
+/build
+/temp
+
+# Ignore node_modules directory, common if you use frontend tools (e.g., Next.js, React)
+# You don't appear to be using it now, but it's good practice for web projects.
+/node_modules
+
+# ----------------------------------------------------------------------
+# 2. Operating System & Editor Exclusions
+# ----------------------------------------------------------------------
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Atom / Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Emacs/Vim temporary files
+*~
+*.swp
+*.bak
